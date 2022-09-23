@@ -2,7 +2,7 @@ namespace Labs;
 
 public class Math
 {
-    public int ToInt(string str)
+    public int ToInt(string? str)
     {
         try
         {
@@ -65,9 +65,9 @@ public class Math
         return new string(charArray);
     }
 
-    public int[] ConvertToNumsArray(int Num)
+    public int[] ConvertToNumsArray(int num)
     {
-        char[] a = Num.ToString().ToCharArray();
+        char[] a = num.ToString().ToCharArray();
         int[] nums = new int[a.Length];
             for (int i = 0; i < a.Length; i++) nums[i] = (int)(a[i] - '0');
         return nums;

@@ -32,7 +32,7 @@ public class First_Lab : Math
                     break;
                 case 2:
                     Console.WriteLine("Write any binary information, what should be converted to default format:");
-                    Console.WriteLine(ConvertFromBytes(ReadBytesFromFile(@"/Users/nikolaj/RiderProjects/Labs/Labs/bin/Debug/net6.0")));
+                    Console.WriteLine(ConvertFromBytes(ReadBytesFromFile(@"D:\загрузки")));
                     break;
                 default:
                     Console.WriteLine("Wrong choose of type of work.");
@@ -40,7 +40,7 @@ public class First_Lab : Math
             }
     }
 
-    static byte[] ConvertToByteArray(string str, Encoding encoding)
+    static byte[] ConvertToByteArray(string? str, Encoding encoding)
     {
         return encoding.GetBytes(str);
     }
@@ -68,7 +68,7 @@ public class First_Lab : Math
         byte[] chunk;
             try
             {
-                using (var filestream = new FileStream(path + @"/Untitled.txt", Open, Read))
+                using (var filestream = new FileStream(path + @"/Test.txt", Open, Read))
                 {
                     using (BinaryReader binaryReader = new BinaryReader(filestream, Encoding.Default))
                     {
