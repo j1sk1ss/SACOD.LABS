@@ -51,4 +51,20 @@ public class Math
         Array.Reverse(charArray);
         return new string(charArray);
     }
+
+    public int[] ConvertToNumsArray(int Num)
+    {
+        char[] a = Num.ToString().ToCharArray();
+        int[] nums = new int[a.Length];
+            for (int i = 0; i < a.Length; i++) nums[i] = (int)(a[i] - '0');
+        return nums;
+    }
+
+    public int Sqrt(int number)
+    {
+        for (int i = 0; i < number; i++)
+            if (Pow(i, 1) == number)
+            {return i;}
+        return number;
+    }
 }
