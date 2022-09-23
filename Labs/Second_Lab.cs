@@ -4,21 +4,11 @@ namespace Labs;
 
 public class Second_Lab : Math
 {
-    readonly Math _math = new Math();
     public void Main()
     {
         Console.WriteLine("Second lab");
         Console.WriteLine("Type a problem number: ");
-        int? quest;
-            try
-            {
-                quest = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+        int? quest = ToInt(Console.ReadLine());
         switch (quest)
         {
             case 1:
@@ -43,29 +33,18 @@ public class Second_Lab : Math
     {
         int a1, b1, c1;
         Console.WriteLine("Type a number, what should be converted: ");
-        string? a = Console.ReadLine();
+        a1 = ToInt(Console.ReadLine());
             Console.WriteLine("Type a start system less then 11: ");
-            string? b = Console.ReadLine();
+            b1 = ToInt(Console.ReadLine());
                 Console.WriteLine("Type a second system less then 11: ");
-                string? c = Console.ReadLine();
-            try
-            {
-                a1 = Convert.ToInt32(a);
-                b1 = Convert.ToInt32(b); 
-                c1 = Convert.ToInt32(c);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        if (_math.CheckSystem(a1, b1))
+                c1 = ToInt(Console.ReadLine());
+        if (CheckSystem(a1, b1))
         {
             var numInTen = 0;
-            numInTen = b1 != 10 ? _math.ConvertToTen(a1, b1) : a1;
+            numInTen = b1 != 10 ? ConvertToTen(a1, b1) : a1;
             Console.WriteLine(numInTen);
-            Console.WriteLine($"There {a1} from {b1} system in {c} system is: ");
-            var numInSystem = _math.ConvertToSystem(numInTen, c1);
+            Console.WriteLine($"There {a1} from {b1} system in {c1} system is: ");
+            var numInSystem = ConvertToSystem(numInTen, c1);
             Console.WriteLine(numInSystem);
         } else Console.WriteLine("This number is not from this system!");
     }
@@ -75,10 +54,10 @@ public class Second_Lab : Math
         int? size = 0;
         int a = 0;
         Console.WriteLine("Type a number, what should be processed: ");
+        a = ToInt(Console.ReadLine());
             try
-            { 
-                a = Convert.ToInt32(Console.ReadLine()); 
-                size = _math.ConvertToNumsArray(a).Length;
+            {
+                size = ConvertToNumsArray(a).Length;
             }
             catch (Exception e)
             {
@@ -89,7 +68,7 @@ public class Second_Lab : Math
             int thisNumber = a;
         for (int i = 0; i < size; i++)
         {
-            int[] number = _math.ConvertToNumsArray(thisNumber);
+            int[] number = ConvertToNumsArray(thisNumber);
             int? thisSize = number.Length;
             if (thisSize <= 1) break;
             thisNumber = 0;
@@ -104,15 +83,7 @@ public class Second_Lab : Math
         Console.WriteLine("Type a value, what should be represented by RU banknotes between 50 and 10000: ");
         int value = 0;
         int[] banknotes = {5000, 2000, 1000, 500, 200, 100, 50, 10};
-            try
-            {
-                value = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+        value = ToInt(Console.ReadLine());
             Console.WriteLine("Banknotes: ");
             while (value > 10)
             {
@@ -131,16 +102,8 @@ public class Second_Lab : Math
     {
         int number = 0;
         Console.WriteLine("Write a number, what square should be find: ");
-            try
-            {
-                number = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+        number = ToInt(Console.ReadLine());
         Console.WriteLine("Square of number is: ");
-        Console.WriteLine(_math.Sqrt(number) + "");
+        Console.WriteLine(Sqrt(number) + "");
     }
 }
