@@ -2,7 +2,7 @@ namespace Labs;
 
 public class Math
 {
-    public int ToInt(string? str)
+    protected static int ToInt(string? str)
     {
         try
         {
@@ -15,7 +15,7 @@ public class Math
         }
   
     }
-    public string ConvertToSystem(int number, int endSystem)
+    protected static string ConvertToSystem(int number, int endSystem)
     {
         var num = number;
         var endNumber = "";
@@ -27,7 +27,7 @@ public class Math
         endNumber += num;
         return Reverse(endNumber);
     }
-    public int ConvertToTen(int number, int startSys)
+    protected static int ConvertToTen(int number, int startSys)
     {
         char[] num = number.ToString().ToCharArray();
         var endNum = 0;
@@ -38,7 +38,7 @@ public class Math
         return endNum;
     }
 
-    public bool CheckSystem(int number, int system)
+    protected static bool CheckSystem(int number, int system)
     {
         char[] a = number.ToString().ToCharArray();
         for (int i = 0; i < a.Length; i++)
@@ -46,7 +46,7 @@ public class Math
                 return false;
         return true;
     }
-    public static int Pow(int number, int degree)
+    private static int Pow(int number, int degree)
     {
         int num = number;
         if (degree != 0)
@@ -58,14 +58,14 @@ public class Math
         else return 1;
        
     }
-    public static string Reverse( string s )
+    private static string Reverse( string s )
     {
         char[] charArray = s.ToCharArray();
         Array.Reverse(charArray);
         return new string(charArray);
     }
 
-    public int[] ConvertToNumsArray(int num)
+    protected static int[] ConvertToNumsArray(int num)
     {
         char[] a = num.ToString().ToCharArray();
         int[] nums = new int[a.Length];
@@ -73,7 +73,7 @@ public class Math
         return nums;
     }
 
-    public int Sqrt(int number)
+    protected static int Sqrt(int number)
     {
         for (int i = 0; i < number; i++)
             if (Pow(i, 1) == number)

@@ -7,7 +7,7 @@ namespace Labs
         public static void Main()
         {
             Console.WriteLine("Choose lab: ");
-            int? k = 0;
+            int? k;
             try
             {
                 k = Convert.ToInt32(Console.ReadLine());
