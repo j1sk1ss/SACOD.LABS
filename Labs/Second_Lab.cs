@@ -1,47 +1,25 @@
-using System.Drawing;
-
 namespace Labs;
 
-public class Second_Lab : Math
+public class SecondLab : Math
 {
     public void Main()
     {
         Console.WriteLine("Second lab");
         Console.WriteLine("Type a problem number: ");
-        int? quest = ToInt(Console.ReadLine());
-        switch (quest)
-        {
-            case 1:
-                Quest_1();
-                break;
-            case 2:
-                Quest_2();
-                break;
-            case 3:
-                Quest_3();
-                break;
-            case 4:
-                Quest_4();
-                break;
-            default:
-                Console.WriteLine("Quest not exist.");
-                break;
-        }
+        typeof(SecondLab).GetMethod($"Quest_{Console.ReadLine()}")!.Invoke(new SecondLab(), null);
     }
 
-    private void Quest_1()
+    public void Quest_1()
     {
-        int a1, b1, c1;
         Console.WriteLine("Type a number, what should be converted: ");
-        a1 = ToInt(Console.ReadLine());
-            Console.WriteLine("Type a start system less then 11: ");
-            b1 = ToInt(Console.ReadLine());
-                Console.WriteLine("Type a second system less then 11: ");
-                c1 = ToInt(Console.ReadLine());
+        var a1 = ToInt(Console.ReadLine());
+            Console.WriteLine("Type a start system: ");
+            var b1 = ToInt(Console.ReadLine());
+                Console.WriteLine("Type a second system: ");
+                var c1 = ToInt(Console.ReadLine());
         if (CheckSystem(a1, b1))
         {
-            var numInTen = 0;
-            numInTen = b1 != 10 ? ConvertToTen(a1, b1) : a1;
+            var numInTen = b1 != 10 ? ConvertToTen(a1.ToString(), b1) : a1;
             Console.WriteLine(numInTen);
             Console.WriteLine($"There {a1} from {b1} system in {c1} system is: ");
             var numInSystem = ConvertToSystem(numInTen, c1);
@@ -104,6 +82,6 @@ public class Second_Lab : Math
         Console.WriteLine("Write a number, what square should be find: ");
         number = ToInt(Console.ReadLine());
         Console.WriteLine("Square of number is: ");
-        Console.WriteLine(Sqrt(number) + "");
+        Console.WriteLine(System.Math.Sqrt(number) + "");
     }
 }

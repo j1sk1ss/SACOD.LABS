@@ -23,7 +23,6 @@ public class First_Lab : Math
                 Console.WriteLine(e);
                 throw;
             }
-
             switch (choose)
             {
                 case 1:
@@ -93,7 +92,7 @@ public class First_Lab : Math
         int i;
         int j = 0;
         char dchar;
-        StringBuilder dumptext = new StringBuilder("        ", 16 * 4 + 8);
+        StringBuilder dumptext = new StringBuilder("       ", 16 * 4 + 8);
         for (i = 0; i < len; i++)
         {
             dumptext.Insert(j * 3, String.Format("{0:X2} ", (int)bdata[i]));

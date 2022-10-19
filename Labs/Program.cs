@@ -1,36 +1,16 @@
-﻿using System;
-using System.IO;
-namespace Labs
+﻿namespace Labs
 {
     class MainClass
     {
         public static void Main()
         {
+            var labs = new Dictionary<int, Action>
+            {
+                {1,new First_Lab().Main},
+                {2,new SecondLab().Main}
+            };
             Console.WriteLine("Choose lab: ");
-            int? k;
-            try
-            {
-                k = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            switch (k)
-            {
-                case (1):
-                    First_Lab firstLab = new First_Lab();
-                    firstLab.Main();
-                    break;
-                case (2):
-                    Second_Lab secondLab = new Second_Lab();
-                    secondLab.Main();
-                    break;
-                default:
-                    Console.WriteLine("Lab not exist.");
-                    break;
-            }
+            labs[int.Parse(Console.ReadLine()!)]();
         }
      }
 }
