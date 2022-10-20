@@ -15,9 +15,9 @@ public class Math
         }
   
     }
-    public string ConvertToSystem(int number, int endSystem)
+    public string ConvertToSystem(string number, int endSystem)
     {
-        var num = number;
+        var num = int.Parse(number);
         var endNumber = "";
             while (num >= endSystem)
             {
@@ -42,7 +42,8 @@ public class Math
         }
         return Reverse(endNumber);
     }
-    public int ConvertToTen(string number, int startSys)
+
+    protected int ConvertToTen(string number, int startSys)
     {
         var num = number.ToCharArray();
         return num.Select((t, i) => (t > 64) switch
@@ -52,10 +53,13 @@ public class Math
             })
             .Sum();
     }
-    protected static bool CheckSystem(int number, int system)
+    protected static bool CheckSystem(string number, int system)
     {
-        var a = number.ToString().ToCharArray();
-        return a.All(t => (int)(t - '0') < system);
+        var a = number.ToCharArray();
+        for (var j = 0; j < a.Length; j++)
+        { if ((a[j] - 55 > system  && a[j] > 55) || (a[j] - '0' > system && a[j] - 55 > system)) return false; 
+          if (j == a.Length - 1) return true; }
+        return false;
     }
     private static string Reverse( string s )
     {
