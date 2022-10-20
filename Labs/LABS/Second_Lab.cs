@@ -1,4 +1,4 @@
-namespace Labs;
+namespace Labs.LABS;
 
 public class SecondLab : Math
 {

@@ -1,5 +1,6 @@
 using System.Text;
-namespace Labs;
+
+namespace Labs.LABS;
 public class FirstLab : Math
 {
     public void Main()
