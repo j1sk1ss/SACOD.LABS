@@ -6,7 +6,7 @@
         {
             var labs = new Dictionary<int, Action>
             {
-                {1,new First_Lab().Main},
+                {1,new FirstLab().Main},
                 {2,new SecondLab().Main}
             };
             Console.WriteLine("Choose lab: ");

@@ -27,58 +27,44 @@ public class SecondLab : Math
         } else Console.WriteLine("This number is not from this system!");
     }
 
-    private void Quest_2()
+    public void Quest_2()
     {
-        int? size = 0;
-        int a = 0;
+        var a = 0;
         Console.WriteLine("Type a number, what should be processed: ");
         a = ToInt(Console.ReadLine());
-            try
-            {
-                size = ConvertToNumsArray(a).Length;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-            int thisNumber = a;
-        for (int i = 0; i < size; i++)
+        var thisNumber = a;
+        for (var i = 0; i < ConvertToNumsArray(a).Length; i++)
         {
-            int[] number = ConvertToNumsArray(thisNumber);
-            int? thisSize = number.Length;
-            if (thisSize <= 1) break;
-            thisNumber = 0;
-                for (int j = 0; j < thisSize; j++) thisNumber += number[j];
+            var number = ConvertToNumsArray(thisNumber);
+            thisNumber = number.Sum();
         }
         Console.WriteLine("The answer is: ");
         Console.WriteLine(thisNumber);
     }
 
-    private void Quest_3()
+    public void Quest_3()
     {
         Console.WriteLine("Type a value, what should be represented by RU banknotes between 50 and 10000: ");
-        int value = 0;
+        var value = 0;
         int[] banknotes = {5000, 2000, 1000, 500, 200, 100, 50, 10};
+        var bnk = new int[banknotes.Length];
         value = ToInt(Console.ReadLine());
             Console.WriteLine("Banknotes: ");
-            while (value > 10)
+
+        for (var i = 0; i < banknotes.Length; i++)
+            if (value - banknotes[i] >= 0)
             {
-                for (int i = 0; i < banknotes.Length; i++)
-                    if (value - banknotes[i] >= 0)
-                    {
-                        Console.WriteLine(banknotes[i]);
-                        value -= banknotes[i];
-                        i--;
-                    }
+                bnk[i] += banknotes[i];
+                value -= banknotes[i];
+                i--;
             }
-            Console.WriteLine("Remainder: " + value);
+        for (var i = 0; i < banknotes.Length; i++) if (bnk[i] != 0) Console.WriteLine($"U will need: {bnk[i] / banknotes[i]}x {banknotes[i]}");
+        Console.WriteLine($"Remainder: {value}");
     }
 
-    private void Quest_4()
+    public void Quest_4()
     {
-        int number = 0;
+        var number = 0;
         Console.WriteLine("Write a number, what square should be find: ");
         number = ToInt(Console.ReadLine());
         Console.WriteLine("Square of number is: ");
