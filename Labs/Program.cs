@@ -1,13 +1,9 @@
 ﻿using Labs.LABS;
 
-namespace Labs
-{
-    class MainClass
-    {
-        public static void Main()
-        {
-            var labs = new Dictionary<int, Action>
-            {
+namespace Labs {
+    class MainClass {
+        public static void Main() {
+            var labs = new Dictionary<int, Action> {
                 {1,new FirstLab().Main},
                 {2,new SecondLab().Main},
                 {3,new ThirdLab().Main},
